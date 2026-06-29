@@ -201,10 +201,7 @@ function CompactRow({ order, isLast, onUpdateOrder, onExpand }) {
 
         <div className="flex flex-col items-end gap-1 shrink-0">
           <span className="font-semibold text-sm whitespace-nowrap">
-            {formatDA(order.totalPrice)}
-          </span>
-          <span className="text-[10px] text-gray-500 whitespace-nowrap font-normal">
-            {formatDA(order.subtotal ?? (order.totalPrice - (order.shippingFee ?? 0)))} + {formatDA(order.shippingFee ?? 0)}
+            {formatDA(order.subtotal ?? (order.totalPrice - (order.shippingFee ?? 0)))}
           </span>
           <span
             className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-medium ${statusBadgeClass(
