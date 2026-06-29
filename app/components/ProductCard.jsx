@@ -328,10 +328,31 @@ export default function ProductCard({ product, onAddToCart }) {
         </button>
 
         {added && (
-          <p className="text-center text-[11px] text-gray-400">
-            Pick another colour or size and add again to order more.
-          </p>
+          <div
+            style={{
+              animation: "slideUpFade 0.35s cubic-bezier(0.22,1,0.36,1) both",
+            }}
+            className="flex items-start gap-3 border border-black/10 bg-gray-50 rounded-sm px-4 py-3"
+          >
+            <span className="mt-[1px] shrink-0 text-black">
+              {/* rotate arrow icon */}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M9 15 3 9l6-6"/><path d="M3 9h13a5 5 0 0 1 0 10h-1"/>
+              </svg>
+            </span>
+            <p className="text-[11px] leading-[1.6] text-gray-600">
+              <span className="font-semibold text-black">Want another one?</span>{" "}
+              Pick a different colour or size and tap <span className="font-semibold text-black">Add to Order</span> again.
+            </p>
+          </div>
         )}
+
+        <style>{`
+          @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+        `}</style>
       </div>
     </article>
   );
